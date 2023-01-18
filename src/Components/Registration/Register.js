@@ -159,7 +159,7 @@ function Register() {
                 </p>
               </div>
               <div className={style.txt2}>
-                Have an Account Already..? <Link path="/"> Log in</Link>
+                Have an Account Already..? <Link to="/"> Log in</Link>
               </div>
             </>
           )}
