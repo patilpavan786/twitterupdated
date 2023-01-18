@@ -15,9 +15,9 @@ function Login() {
     setNextBtn(true);
   };
   const handleLogIn = () => {
-    // const loginset = { ...Data, isLogin: true };
+  
     console.log(setIsLogin);
-    // setIsLogin(loginset);
+   
   };
 
   return (
@@ -61,9 +61,6 @@ function Login() {
               ></CustomButton>
               <br />
               <div className={style.or}>
-                {/* <p className={style.line}>_________________</p>
-              OR
-              <p className={style.line}>_________________</p> */}
                 <span style={{ display: "flex" }}>
                   <hr style={{ width: "8.4rem", height: "0px" }} />
                   &nbsp;&nbsp;or&nbsp;&nbsp;

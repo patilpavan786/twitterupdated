@@ -25,21 +25,21 @@ const [selectedYear,setSelectedYear]= useState(null);
         <option value="" disabled>Select a month</option>
         {months.map(month => <option key={month} value={month}>{month}</option>)}
       </select>
-      {selectedMonth && <p>Selected month: {selectedMonth}</p>}
+      {/* {selectedMonth && <p>Selected month: {selectedMonth}</p>} */}
     </div>
     <div >
       <select className={style.day} value={selectedDay} onChange={e => setSelectedDay(e.target.value)}>
         <option value="" disabled>Select a Day</option>
         {Day.map(Day => <option key={Day} value={Day}>{Day}</option>)}
       </select>
-      {selectedDay && <p>Selected Day: {selectedDay}</p>}
+      {/* {selectedDay && <p>Selected Day: {selectedDay}</p>} */}
     </div>
     <div >
-      <select value={selectedYear} onChange={e => setSelectedYear(e.target.value)}>
+      <select  className={style.year} value={selectedYear} onChange={e => setSelectedYear(e.target.value)}>
         <option value="" disabled>Select a month</option>
         {Years.map(Year => <option key={Year} value={Year}>{Year}</option>)}
       </select>
-      {selectedYear && <p>Selected Year: {selectedYear}</p>}
+      {/* {selectedYear && <p>Selected Year: {selectedYear}</p>} */}
     </div>
    
     

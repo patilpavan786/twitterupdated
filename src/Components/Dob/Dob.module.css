@@ -5,6 +5,7 @@
     flex-direction: row;
     width: 440px;
     height: 60px;
+    gap: 0.3rem;
 }
 .month{
     width: 206px;
