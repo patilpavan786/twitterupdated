@@ -1,9 +1,10 @@
 import { Home } from "@mui/icons-material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 
 import Login from "./Components/Login/Login";
 import Register from "./Components/Registration/Register";
+// import Userdetails from "./Components/Userdetails";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Home" element={<Home />} />
+        
         </Routes>
       </Router>
     </>

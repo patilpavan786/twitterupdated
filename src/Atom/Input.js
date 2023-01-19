@@ -10,6 +10,7 @@ function Input(props) {
         placeholder={props.placeholder}
         onChange={(e)=>props.handleOnchange(e.target.value)}
       ></input>
+      {/* <span>{props.span}</span> */}
     </div>
   );
 }

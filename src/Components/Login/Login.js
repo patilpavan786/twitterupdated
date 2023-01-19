@@ -10,14 +10,13 @@ import { Link } from "react-router-dom";
 function Login() {
   const [nextbtn, setNextBtn] = useState(false);
   const [isLogin, setIsLogin] = useRecoilState(Data);
+  console.log(Data);
   setIsLogin(true);
   const buttonNext = () => {
     setNextBtn(true);
   };
   const handleLogIn = () => {
-  
-    console.log(setIsLogin);
-   
+    console.log(isLogin);
   };
 
   return (
@@ -68,6 +67,14 @@ function Login() {
                 </span>
               </div>
               <br />
+              {/* <div className={style.inputField}>
+                <Input 
+                 className={style.input}
+                type="text" 
+                placeholder=" " 
+                 span= "Phone, email or username"
+                />
+              </div> */}
               <div>
                 <Input
                   className={style.input}

@@ -6,76 +6,64 @@ import { isValidEmail, isValidMobile, isValidString } from "../../helper";
 import Input from "../../Atom/Input";
 import { Link } from "react-router-dom";
 import Dob from "../Dob/Dob";
-import { Data } from "../../Recoil/Atom1/Atom";
+// import { Data } from "../../Recoil/Atom1/Atom";
 function Register() {
   const [form, Setform] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const[name,setName]=useState('')
-  const[phone,setPhone]=useState('')
-  const[email,setEmail]=useState('')
-  const [data ,setData]= useState([])
-  const[npe,SetNpe]=useState(true)
-  useEffect(()=>{
-    if(localStorage.getItem("userDetails")){
-      let data= JSON.parse(localStorage.getItem("userDetails"))
-      setData(data)
-      console.log(data)
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [data, setData] = useState([]);
+  const [npe, SetNpe] = useState(true);
+  useEffect(() => {
+    if (localStorage.getItem("userDetails")) {
+      let data = JSON.parse(localStorage.getItem("userDetails"));
+      setData(data);
+      console.log(data);
     }
-    },[])
+  }, []);
   function Form() {
     Setform(true);
   }
   function ToggleEU() {
     setToggle(!toggle);
   }
-  function handleName(inputName)
-  {
-    setName(inputName)
+  function handleName(inputName) {
+    setName(inputName);
   }
-  function handleMobile(inputMobile)
-  {
-    setPhone(inputMobile)
+  function handleMobile(inputMobile) {
+    setPhone(inputMobile);
   }
-  function handleEmail(inputEmail)
-  {
-    setEmail(inputEmail)
+  function handleEmail(inputEmail) {
+    setEmail(inputEmail);
   }
-  
-  function submitFunction()
-  {
-   const Data={
-      Name : name,
-     Phone : phone,
-      Email : email
+
+  function submitFunction() {
+    const Data = {
+      Name: name,
+      Phone: phone,
+      Email: email,
+    };
+    if (!isValidString(name)) {
+      alert("add proper Name");
+      SetNpe(false);
     }
-    if(!isValidString(name))
-    {
-      alert("add proper Name")
-      SetNpe(false)
-    }
-    if(toggle===true)
-    {
-      if(!isValidMobile(phone))
-      {
-        alert("add proper PhoneNumber ")
-        SetNpe(false)
-        
+    if (toggle === true) {
+      if (!isValidMobile(phone)) {
+        alert("add proper PhoneNumber ");
+        SetNpe(false);
+      }
+    } else {
+      if (!isValidEmail(email)) {
+        alert("Give correct email");
+        SetNpe(false);
       }
     }
-    else
-    {
-        if(!isValidEmail(email))
-      {
-        alert("Give correct email")
-        SetNpe(false)
-      }
-  }
-   alert("succesfullly registred")
-   if(npe===true){
-  localStorage.setItem("user" , JSON.stringify(Data))
-  // window.location.assign('/Home')
-  }
-  
+    alert("succesfullly registred");
+    if (npe === true) {
+      localStorage.setItem("user", JSON.stringify(Data));
+      // window.location.assign('/Home')
+    }
   }
   return (
     <div className={style.container}>
@@ -83,33 +71,55 @@ function Register() {
         <div className={style.mainContainer}>
           {form ? (
             <>
-              <div className={style.form} >
+              <div className={style.form}>
                 <div>
                   <h1>Create your account</h1>
                 </div>
                 <div>
-                  <Input className={style.input1} placeholder="Name" handleOnchange={handleName} />
+                  <Input
+                    className={style.input1}
+                    placeholder="Name"
+                    handleOnchange={handleName}
+                  />
                   <br />
                   <div className={style.toogleData}>
                     {toggle ? (
                       <>
-                        <Input className={style.input2} placeholder="Phone"  handleOnchange={handleMobile} />
+                        <Input
+                          className={style.input2}
+                          placeholder="Phone"
+                          handleOnchange={handleMobile}
+                        />
                       </>
                     ) : (
                       <>
-                        <Input className={style.input2} placeholder="email" handleOnchange={handleEmail}/>
+                        <Input
+                          className={style.input2}
+                          placeholder="email"
+                          handleOnchange={handleEmail}
+                        />
                       </>
                     )}
                     <span className={style.toggle} onClick={ToggleEU}>
                       {toggle ? (
-                        <h6> UseEmail insted </h6>
+                        <h6> Use Email instead </h6>
                       ) : (
-                        <h6>UsePhone insted</h6>
+                        <h6>Use Phone instead</h6>
                       )}
                     </span>
+                    <div>
+                      <div>
+                        <h4 style={{ color: "white" }}>Date of birth</h4>
+                        <p style={{ color: "grey", width: "27rem" }}>
+                          This will not be shown publicly. Confirm your own age,
+                          even if this account is for a business, a pet, or
+                          something else.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <div>
-            <Dob />
+                    <Dob />
                   </div>
                 </div>
                 <div>
